@@ -40,10 +40,12 @@
 */
 
 function showValues( obj ) {
-  //Code Here
+  str = '';
+  for (var x in obj) {
+    str = str.concat(obj[x]);
+  }
+  return str;
 }
-
-
 
 ////////// PROBLEM 2 //////////
 
@@ -53,7 +55,14 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
+function greaterThan10(obj) {
+  for (var value in obj) {
+    if (obj[value] > 10) {
+      obj[value] = 0;
+    }
+  }
+  return obj
+}
 
 
 
@@ -65,7 +74,12 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
+function double(obj) {
+  for (var value in obj) {
+    obj[value] *= 2;
+  }
+  return obj
+}
 
 
 
@@ -79,8 +93,15 @@ function showValues( obj ) {
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
 
-//Code Here
-
+function secrets(obj) {
+  let str = '';
+  for (let prop in obj) {
+    if (prop.startsWith('sh')) {
+      str += obj[prop];
+    }
+  }
+  return str;
+}
 
 
 /* 
@@ -110,7 +131,12 @@ function showValues( obj ) {
   Delete the property password and return the object.
 */
 
-//Code Here
+function removePassword(obj) {
+  for (let prop in obj) {
+    delete obj.password;
+  }
+  return obj;
+}
 
 
 
@@ -129,8 +155,13 @@ var deleteTheBigNumbers = {
   Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
 */
 
-//Code Here
+for (let prop in deleteTheBigNumbers) {
+  if (deleteTheBigNumbers[prop] > 100) {
+    delete deleteTheBigNumbers[prop];
+  }
+}
 
+console.log(deleteTheBigNumbers)
 
 
 ////////// PROBLEM 7 //////////
@@ -142,7 +173,14 @@ var deleteTheBigNumbers = {
   Return the updated object.
 */
 
-//Code Here
+function startsWithK(obj) {
+  for (let prop in obj) {
+    if (prop.startsWith('k')) {
+      delete obj[prop];
+    }
+  }
+  return obj;
+}
 
 
 
@@ -157,6 +195,13 @@ var deleteTheBigNumbers = {
   (hint: the method includes() may be of use...)
 */
 
-//Code Here
+function hiddenTreasure(obj) {
+  for (let prop in obj) {
+    if (!obj[prop].includes('treasure')) {
+      delete obj[prop];
+    }
+  }
+  return obj;
+}
 
 
