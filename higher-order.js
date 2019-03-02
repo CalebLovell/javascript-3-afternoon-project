@@ -69,11 +69,11 @@ const populations = [8175133, 3792621, 2695598, 2100263];
   (runningTotal, curElement, curIndex, wholeArray)=>{} Arrow Form
 */
 
-function sum (total, pop) {
-  return total + pop;
-}
+// function sum (total, pop) {
+//   return total + pop;
+// }
 
-let totalPopulation = populations.reduce(sum)
+let totalPopulation = populations.reduce((acc, pop) => acc + pop)
 
 
 
@@ -98,14 +98,16 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
   Use the filter method to return only the monsters that have a CP of over 200.
 */
 
-function cb() {
-  if (monstersInYourPocket[prop] < 200) {
-    delete monstersInYourPocket[prop]
-  }
-  return monstersInYourPocket;
-}
+// function cb() {
+//   if (monstersInYourPocket.CP < 200) {
+//     delete monstersInYourPocket.CP
+//   }
+//   return monstersInYourPocket;
+// }
 
-let myStrongest = monstersInYourPocket.filter(cb)
+// filter will return a new array with the values that don't fail your true/false test
+
+let myStrongest = monstersInYourPocket.filter(x => x.CP > 200)
 
 
 
@@ -122,7 +124,7 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
   Use a higher order method to get all the order totals after adding in the sales tax. Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals // Code here
+let orderTotals = orders.map(order => order.price * (order.tax+1));
 
 
 
@@ -142,6 +144,10 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal //Code Here
-
-
+let bobsTotal = purchases.reduce((acc, purchase) => {
+  let accTotal = acc
+  if (purchase.owner === 'Bob') {
+    accTotal += purchase.price
+  }
+  return accTotal
+}, 0)
