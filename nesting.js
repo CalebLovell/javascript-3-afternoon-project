@@ -50,16 +50,39 @@ var employees = [
     3. Return the updated employee array.
 */
 
-function employeeUpdater() {
-  for (let employee in employees) {
-    if (employee === "Theo"){
-      delete employees[employee];
-    } else if (employee === "Lorie") {
-      return employees.department = 'HR';
+let employeeUpdater = ()=>{
+  for(let i = 0; i < employees.length; i++){
+    if(employees.firstName === 'Theo'){
+      employees.splice([i],1)
+    }if(employees.firstName === 'Lorie'){
+      employees.department = 'HR'
     }
   }
   return employees
-}
+ }
+ employeeUpdater(employees)
+ console.log(employees)
+
+// function employeeUpdater() {
+//   employees = employees.filter(employee => employee.firstName !== 'Theo');
+  
+//   employees = employees.map(employee =>
+//     if (employee.firstName === 'Lorie') {
+//       employee.department = 'HR';
+//     }
+//   return employees;
+// }
+
+// function employeeUpdater() {
+//   for (let employee in employees) {
+//     if (employee === "Theo"){
+//       delete employees[employee];
+//     } else if (employee === "Lorie") {
+//       return employees.department = 'HR';
+//     }
+//   }
+//   return employees
+// }
 
 
 

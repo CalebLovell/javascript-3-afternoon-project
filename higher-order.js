@@ -107,7 +107,7 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 
 // filter will return a new array with the values that don't fail your true/false test
 
-let myStrongest = monstersInYourPocket.filter(x => x.CP > 200)
+let myStrongest = monstersInYourPocket.filter(obj => obj.CP > 200)
 
 
 
